@@ -20,14 +20,50 @@
 
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+  <body>
 
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#home">Projeto do Herculano e Lucas</a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menu">
+          ☰ <span class="sr-only">Menu</span>
+        </button>
+
+        <nav id="site-navigation" class="site-nav" role="navigation" aria-label="Menu principal">
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- para aparecer o botao de voltar ao topo -->
+    <button id="voltar-ao-topo" class="voltar-ao-topo" aria-hidden="true" aria-label="Voltar-ao-topo">
+      ↑ Topo
+    </button>
+
+    <!-- Inclui os <br> para aparecer o botão de voltar ao topo -->
+    <main id="main-content" tabindex="-1">
+      <section id="home"> <br><br><br><br><br><br><br><br><br><br </section>
+        <section id="sobre"> <br><br><br><br><br><br><br><br><br><br </section>
+          <section id="galeria"> <br><br><br><br><br><br><br><br><br><br </section>
+            <section id="contato"> <br><br><br><br><br><br><br><br><br><br </section>
+    </main>
+
+  </body>
+
+  <script src="js/app.js"></script>
 </body>
 
 </html>

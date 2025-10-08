@@ -1,0 +1,149 @@
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #111;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--site-bg, #ffffff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.site-nav .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.site-nav a:focus,
+.site-nav a:focus-visible,
+.site-nav a:hover {
+  outline: none;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+
+.voltar-ao-topo {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.3rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: var(--accent, #111);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 1100;
+}
+
+.voltar-ao-topo.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* hide when aria-hidden */
+.voltar-ao-topo[aria-hidden="true"] {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Focus styles (keyboard) */
+:focus {
+  outline: 3px solid #2684ff;
+  outline-offset: 2px;
+}
+
+
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .site-nav .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: var(--site-bg, #fff);
+    position: absolute;
+    right: 1rem;
+    top: calc(100% + 0.5rem);
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+  }
+
+  .site-nav.open .nav-list {
+    display: flex;
+  }
+}
+
+/* Respect user preference for no motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .voltar-ao-topo,
+  .site-nav a,
+  .site-header {
+    transition: none !important;
+  }
+}
+
+/* optional: ensure sections have spacing so anchor targets are visible below sticky header */
+:target {
+  scroll-margin-top: 6rem;
+}
