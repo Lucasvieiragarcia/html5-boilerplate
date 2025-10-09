@@ -1,91 +1,67 @@
-/* css/main.css */
-
-/* ==========================================================================
-   Estilos da Galeria Responsiva
-   ========================================================================== */
-
-.galeria-container {
-  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
-  margin: 40px auto; /* Centraliza o container */
-  padding: 0 15px; /* Adiciona espaçamento lateral */
-  font-family: sans-serif;
+/* Estilos Gerais */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-.galeria-titulo {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-  color: #333;
+.gallery-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.galeria-grid {
-  display: grid;
-  gap: 1.5rem; /* Espaçamento entre as imagens */
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.galeria-item {
-  margin: 0;
-  /* Requisito: Reserva de espaço para a imagem */
-  overflow: hidden; /* Garante que a imagem não ultrapasse a borda arredondada */
-  border-radius: 8px; /* Opcional: bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: sombra sutil */
-}
-
-.galeria-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
-
-  /* Requisito: Reserva de espaço (largura/altura) */
-  /* Isso previne o "layout shift" enquanto as imagens carregam */
-  aspect-ratio: 3 / 2; /* Proporção 3:2. Ajuste conforme suas imagens */
-  background-color: #eee; /* Cor de fundo enquanto a imagem carrega */
-}
-
-.galeria-item figcaption {
-  padding: 10px;
-  background-color: #fff;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-
-/* ==========================================================================
-   Responsividade da Galeria (Media Queries)
-   ========================================================================== */
-
-/*
- * Requisito: 1-2 colunas para mobile
- */
-
-/* 1. Estilo base (Mobile First): 1 coluna */
-.galeria-grid {
-  grid-template-columns: 1fr;
-}
-
-/* 2. A partir de 480px: 2 colunas */
-@media (min-width: 480px) {
-  .galeria-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/*
- * Requisito: 2-4 colunas para desktop
- */
-
-/* 3. A partir de 768px (Tablets e Desktops pequenos): 3 colunas */
-@media (min-width: 768px) {
-  .galeria-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* 4. A partir de 1024px (Desktops maiores): 4 colunas */
-@media (min-width: 1024px) {
-  .galeria-grid {
+/* Layout da Galeria com CSS Grid */
+.image-gallery {
+    display: grid;
+    gap: 1rem;
+    /* Para telas maiores (desktop), começamos com 4 colunas */
     grid-template-columns: repeat(4, 1fr);
-  }
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Media Queries para Responsividade */
+
+/* Telas de tablet - 3 colunas */
+@media (max-width: 992px) {
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Telas de tablet menores e celulares grandes - 2 colunas */
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas de celular - 1 coluna */
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
 }
