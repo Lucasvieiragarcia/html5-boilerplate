@@ -1,67 +1,149 @@
-/* Estilos Gerais */
+/* --- ESTILOS GERAIS E LAYOUT --- */
+:root {
+  --primary-color: #333;
+  --secondary-color: #007bff;
+  --background-color: #fff;
+  --text-color: #333;
+  --light-gray: #f8f9fa;
+  --border-color: #ddd;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 0;
-    background-color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-.gallery-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 2rem;
+/* --- HEADER E NAVEGAÇÃO --- */
+.main-header {
+  background-color: var(--light-gray);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
 }
 
-/* Layout da Galeria com CSS Grid */
-.image-gallery {
-    display: grid;
-    gap: 1rem;
-    /* Para telas maiores (desktop), começamos com 4 colunas */
-    grid-template-columns: repeat(4, 1fr);
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
-    transition: transform 0.3s ease;
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-/* Media Queries para Responsividade */
-
-/* Telas de tablet - 3 colunas */
-@media (max-width: 992px) {
-    .image-gallery {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--secondary-color);
 }
 
-/* Telas de tablet menores e celulares grandes - 2 colunas */
-@media (max-width: 768px) {
-    .image-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* --- ESTILOS DA GALERIA --- */
+.galeria-container {
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
-/* Telas de celular - 1 coluna */
-@media (max-width: 480px) {
-    .image-gallery {
-        grid-template-columns: 1fr;
-    }
+.galeria-titulo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.galeria-subtitulo {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+.galeria-grid {
+  display: grid;
+  gap: 1.5rem; /* Espaçamento entre as imagens */
+
+  /* O "coração" da responsividade:
+    - auto-fit: Preenche o espaço com o máximo de colunas que couberem.
+    - minmax(280px, 1fr): Cada coluna terá no MÍNIMO 280px. Se houver espaço sobrando,
+      ele será distribuído igualmente (1fr).
+
+    Resultado:
+    - Telas pequenas (mobile): 1 coluna.
+    - Telas um pouco maiores (tablet/mobile-largo): 2 colunas.
+    - Telas grandes (desktop): 3, 4 ou mais colunas, dependendo da largura.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.galeria-item {
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden; /* Garante que a imagem não vaze para fora das bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.galeria-item img {
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  width: 100%;   /* A imagem ocupa toda a largura do seu container (<figure>) */
+  height: auto;  /* A altura se ajusta para manter a proporção */
+
+  /* A MÁGICA PARA A EXPERIÊNCIA DO USUÁRIO:
+    - aspect-ratio: Define a proporção da caixa da imagem (largura / altura).
+    - O navegador reserva este espaço antes da imagem carregar, evitando que o layout "pule".
+    - 600 / 400 é o mesmo que 3 / 2.
+  */
+  aspect-ratio: 3 / 2;
+
+  /* - object-fit: Garante que a imagem cubra todo o espaço reservado sem distorcer,
+      cortando o excesso se necessário. Essencial para imagens de tamanhos variados.
+  */
+  object-fit: cover;
+}
+
+.galeria-item figcaption {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: var(--light-gray);
+  text-align: center;
+  color: #555;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  background-color: var(--light-gray);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: #777;
 }
