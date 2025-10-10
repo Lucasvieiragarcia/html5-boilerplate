@@ -71,16 +71,18 @@ body {
   color: var(--secondary-color);
 }
 
-/* --- ESTILOS DA GALERIA --- */
+/* ======================================================= */
+/* --- ESTILOS DA GALERIA (COM LEGENDA SOBREPOSTA) --- */
+/* ======================================================= */
+
 .galeria-container {
-  padding: 4rem 1rem; /* Aumentado o padding para mais respiro */
+  padding: 4rem 1rem;
   text-align: center;
 }
 
 .galeria-titulo {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  
 }
 
 .galeria-subtitulo {
@@ -92,16 +94,18 @@ body {
 .galeria-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumentado de 280px para 350px */
 }
 
+/* 1. Preparação do Container da Imagem */
 .galeria-item {
+  position: relative; /* Essencial para posicionar a legenda dentro dele */
   margin: 0;
-  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block; /* Garante que a figura se comporte como um bloco */
 }
 
 .galeria-item:hover {
@@ -109,20 +113,47 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
+/* 2. Estilo da Imagem */
 .galeria-item img {
   display: block;
   width: 100%;
-  height: 100%; /* Ajustado para preencher a figura */
-  aspect-ratio: 4 / 3; /* Proporção 4:3 para as imagens */
+  height: 100%;
+  aspect-ratio: 1 / 1; /* Proporção de 1 para 1 (quadrado) */
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+/* Efeito de zoom na imagem ao passar o mouse */
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+/* 3. Estilo da Legenda Sobreposta */
 .galeria-item figcaption {
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: var(--light-gray);
-  text-align: center;
-  color: #555;
+  /* Posicionamento sobre a imagem */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  /* Aparência */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: white;
+  padding: 40px 20px 20px; /* Mais espaço para o gradiente */
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  /* Efeito de transição */
+  opacity: 0; /* Começa invisível */
+  transform: translateY(20px); /* Começa um pouco para baixo */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 4. Mostrar a Legenda ao Passar o Mouse */
+.galeria-item:hover figcaption {
+  opacity: 1; /* Torna-se visível */
+  transform: translateY(0); /* Sobe para a posição final */
 }
 
 /* --- FOOTER --- */
