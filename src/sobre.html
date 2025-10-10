@@ -3,25 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sobre o Projeto</title>
-  <link rel="stylesheet" href="css/main.css">
-  <meta name="description" content="Detalhes sobre o projeto da galeria de imagens.">
+  <title>Projeto do Herculano e Lucas</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="top">
 
   <header class="main-header">
     <div class="container">
       <nav class="main-nav">
-        <a href="index.html" class="nav-logo"></a>
+        <a href="#top" class="nav-logo">Projeto do Herculano e Lucas</a>
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="sobre.html" class="active">Sobre</a></li>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <section id="home" style="padding-top: 100px; padding-bottom: 50px; text-align: center; background-color: #f8f9fa;">
+      <div class="container">
+        <h1>Bem-vindos ao Nosso Projeto</h1>
+        <p>Explore a galeria abaixo para ver um pouco do nosso trabalho.</p>
+      </div>
+    </section>
+
     <section id="sobre" class="sobre-container">
       <div class="container">
         <h2 class="sobre-titulo">Sobre o Nosso Projeto</h2>
@@ -34,9 +43,6 @@
           </p>
 
           <h3>Recursos e Tecnologias</h3>
-          <p>
-            Para a construção deste site, utilizamos um conjunto de tecnologias focadas em simplicidade e eficiência:
-          </p>
           <ul>
             <li><strong>HTML5 Semântico:</strong> Para uma estrutura bem organizada e acessível.</li>
             <li><strong>CSS3 Moderno:</strong> Utilizamos Flexbox para o layout da navegação e CSS Grid para criar a galeria de imagens responsiva, garantindo uma adaptação perfeita a qualquer tamanho de tela.</li>
@@ -45,9 +51,6 @@
           </ul>
 
           <h3>Próximos Passos</h3>
-          <p>
-            O projeto está em constante evolução. Nossos planos futuros incluem:
-          </p>
           <ul>
             <li>Implementação de um formulário de contato funcional.</li>
             <li>Adição de um Lightbox para visualizar as imagens da galeria em tela cheia.</li>
@@ -57,24 +60,34 @@
         </div>
 
         <div class="equipe-conteudo">
-            <h3>Contribuições da Equipe</h3>
-            <p>
-              O trabalho foi dividido entre os integrantes da equipe para garantir a eficiência e a qualidade do projeto final. As principais tarefas atribuídas foram:
-            </p>
-            <ul>
-              <li><strong>Lucas Vieira Garcia:</strong> Estruturação inicial do projeto (HTML), estilização do cabeçalho e rodapé (CSS).</li>
-              <li><strong>Herculano Henriques Chitungo:</strong> Desenvolvimento e responsividade da galeria de imagens com CSS Grid, pesquisa e seleção de imagens.</li>
-              <li><strong>Herculano Henriques:</strong> Criação da seção "Sobre", redação do conteúdo e integração dos links na barra de navegação.</li>
-              <li><strong>Lucas & Herculano:</strong> Gerenciamento do repositório no GitHub, revisão de código (Pull Requests) e deploy do projeto.</li>
-            </ul>
+          <h3>Contribuições da Equipe</h3>
+          <p>
+            O trabalho foi dividido entre os integrantes da equipe para garantir a eficiência e a qualidade do projeto final. As principais tarefas atribuídas foram:
+          </p>
+          <ul>
+            <li><strong>Lucas Vieira Garcia:</strong> Estruturação inicial do projeto (HTML), estilização do cabeçalho e rodapé (CSS).</li>
+            <li><strong>Herculano Henriques Chitungo:</strong> Desenvolvimento e responsividade da galeria de imagens com CSS Grid, pesquisa e seleção de imagens.</li>
+            <li><strong>Herculano Henriques:</strong> Criação da seção "Sobre", redação do conteúdo e integração dos links na barra de navegação.</li>
+            <li><strong>Lucas & Herculano:</strong> Gerenciamento do repositório no GitHub, revisão de código (Pull Requests) e deploy do projeto.</li>
+          </ul>
         </div>
       </div>
+    </section>
+    
+    <section id="contato" style="padding: 50px 0; background-color: #f8f9fa;">
+       <div class="container">
+           <h2>Contato</h2>
+           <p>Entre em contato conosco através do email exemplo@email.com.</p>
+       </div>
     </section>
   </main>
 
   <footer class="main-footer">
-    <p>&copy; 2025 3H. Todos os direitos reservados.</p>
+    <div class="container">
+        <p>&copy; 2025 Projeto do Herculano e Lucas. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
