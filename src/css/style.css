@@ -2,7 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* --- ESTILOS GERAIS E LAYOUT --- */
 :root {
   --primary-color: #333;
   --secondary-color: #007bff;
@@ -11,6 +10,7 @@ html {
   --light-gray: #f8f9fa;
   --border-color: #ddd;
 }
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -27,61 +27,159 @@ body {
   padding: 0 1rem;
 }
 
-/* --- HEADER E NAVEGAÇÃO --- */
-.main-header {
-  background-color: var(--light-gray);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
-  position: sticky; /* Faz o menu ficar fixo no topo ao rolar */
+
+
+.skip-link {
+  position: absolute;
+  left: -999px;
   top: 0;
-  z-index: 100;
-  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
 }
 
-.main-nav {
+.skip-link:focus {
+  left: 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--site-bg, #ffffff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha se não couberem */
-  gap: 1rem; /* Adiciona um espaço caso quebrem a linha */
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
 }
 
-.nav-logo {
-  font-family: "Georgia", "Times New Roman", serif;
-  font-weight: normal;
-  font-size: 1.2rem;
-  color: var(--primary-color);
+.brand {
+  font-weight: 700;
   text-decoration: none;
-  flex-shrink: 1; /* Permite que o logo diminua de tamanho se necessário */
+  color: inherit;
 }
 
-.main-nav ul {
+.site-nav .nav-list {
+  list-style: none;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 1rem;
 }
 
-.main-nav a {
-  font-family: "Georgia", "Times New Roman", serif;
+.site-nav a {
   text-decoration: none;
-  color: var(--text-color);
-  font-weight: normal;
-  font-size: 1rem;
-  transition: color 0.2s ease-in-out;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--secondary-color);
+.site-nav a:focus,
+.site-nav a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.voltar-ao-topo {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.3rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: var(--accent, #111);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 1100;
+}
+
+.voltar-ao-topo.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.voltar-ao-topo[aria-hidden="true"] {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+:focus {
+  outline: 3px solid #2684ff;
+  outline-offset: 2px;
 }
 
 
-/* ======================================================= */
-/* --- ESTILOS DA GALERIA (COM LEGENDA SOBREPOSTA) --- */
-/* ======================================================= */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+
+  .site-nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-list li a {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .voltar-ao-topo,
+  .site-nav a,
+  .site-header {
+    transition: none !important;
+  }
+}
+
+:target {
+  scroll-margin-top: 6rem;
+}
+
 
 .galeria-container {
   padding: 4rem 1rem;
@@ -102,25 +200,23 @@ body {
 .galeria-grid {
   display: grid;
   gap: 1.5rem;
-  /* NOVO: No desktop, mantém o minmax(350px, 1fr) */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  justify-content: center; /* Centraliza a grid quando houver menos colunas do que o espaço permitiria */
+  justify-content: center;
 }
 
 .galeria-item {
   position: relative;
-  margin: 0 auto; /* Centraliza o item individualmente se a largura não for 100% */
-  max-width: 100%; /* Garante que o item não exceda o container */
+  margin: 0 auto;
+  max-width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
 }
 
 .galeria-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .galeria-item img {
@@ -168,28 +264,25 @@ body {
   color: #777;
 }
 
-/* ======================================================= */
-/* --- AJUSTES DE RESPONSIVIDADE ---                       */
-/* ======================================================= */
+
+
 
 @media (max-width: 480px) {
-    .nav-logo {
-        font-size: 1rem;
-    }
-    .main-nav ul {
-        gap: 0.8rem;
-    }
-    .main-nav a {
-        font-size: 0.9rem;
-    }
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .main-nav ul {
+    gap: 0.8rem;
+  }
+  .main-nav a {
+    font-size: 0.9rem;
+  }
 
-    .galeria-grid {
-      /* Quando a tela é pequena, a coluna ocupa 100% da largura disponível */
-      grid-template-columns: 1fr; /* Força uma única coluna, ocupando todo o espaço */
-    }
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .galeria-item {
-      /* Remove o margin auto para garantir que o item ocupe a largura total */
-      margin: 0;
-    }
+  .galeria-item {
+    margin: 0;
+  }
 }
