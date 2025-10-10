@@ -41,6 +41,8 @@
 
 .site-nav .nav-list {
   list-style: none;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   display: flex;
@@ -93,44 +95,54 @@
   opacity: 1;
 }
 
-/* hide when aria-hidden */
+
 .voltar-ao-topo[aria-hidden="true"] {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
 }
 
-/* Focus styles (keyboard) */
+
 :focus {
   outline: 3px solid #2684ff;
   outline-offset: 2px;
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .nav-toggle {
-    display: inline-block;
+    display: block;
   }
 
-  .site-nav .nav-list {
+  .site-nav {
     display: none;
-    flex-direction: column;
-    gap: 0;
-    background: var(--site-bg, #fff);
     position: absolute;
-    right: 1rem;
-    top: calc(100% + 0.5rem);
-    padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 6px;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
   }
 
-  .site-nav.open .nav-list {
+  .site-nav.open {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-list li a {
+    font-size: 18px;
   }
 }
 
-/* Respect user preference for no motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -143,7 +155,7 @@
   }
 }
 
-/* optional: ensure sections have spacing so anchor targets are visible below sticky header */
+
 :target {
   scroll-margin-top: 6rem;
 }
