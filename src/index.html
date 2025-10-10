@@ -1,32 +1,19 @@
 <!doctype html>
-<html lang="">
-
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Projeto do Herculano e Lucas</title>
+  <meta name="description" content="Página com navbar fixa, botão voltar ao topo e galeria de imagens responsiva.">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 
+<body id="top">
 
-<body>
-
+  <!-- Link para pular direto ao conteúdo -->
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
@@ -38,7 +25,7 @@
 
       <nav id="site-navigation" class="site-nav" role="navigation" aria-label="Menu principal">
         <ul class="nav-list">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#home" class="active">Home</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -47,22 +34,86 @@
     </div>
   </header>
 
-  <!-- para aparecer o botao de voltar ao topo -->
-  <button id="voltar-ao-topo" class="voltar-ao-topo" aria-hidden="true" aria-label="Voltar-ao-topo">
+  <!-- Botão Voltar ao Topo -->
+  <button id="voltar-ao-topo" class="voltar-ao-topo" aria-hidden="true" aria-label="Voltar ao topo">
     ↑ Topo
   </button>
 
-  <!-- Inclui os <br> para aparecer o botão de voltar ao topo -->
+
   <main id="main-content" tabindex="-1">
-    <section id="home"> <br><br><br><br><br><br><br><br><br><br </section>
-      <section id="sobre"> <br><br><br><br><br><br><br><br><br><br </section>
-        <section id="galeria"> <br><br><br><br><br><br><br><br><br><br </section>
-          <section id="contato"> <br><br><br><br><br><br><br><br><br><br </section>
+
+    <section id="home" style="padding: 100px 0 50px; text-align: center; background-color: #f8f9fa;">
+      <div class="container">
+        <h1>Bem-vindos ao Nosso Projeto</h1>
+        <p>Explore a galeria abaixo para ver um pouco do nosso trabalho.</p>
+      </div>
+    </section>
+
+    <section id="sobre" style="padding: 50px 0;">
+      <div class="container">
+        <h2>Sobre o Projeto</h2>
+        <p>Este espaço é dedicado a apresentar nossas fotografias e projetos visuais de forma elegante e acessível.</p>
+      </div>
+    </section>
+
+    <section id="galeria" class="galeria-container">
+      <div class="container">
+        <h2 class="galeria-titulo">Nossa Galeria</h2>
+        <p class="galeria-subtitulo">Uma seleção de nossas melhores imagens.</p>
+        <div class="galeria-grid">
+          <figure class="galeria-item">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/54/e8/2f/waterfall-from-the-river.jpg?w=1200&h=900&s=1" alt="Quedas de Kalandula em Angola">
+            <figcaption>Quedas de Kalandula</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/bf/f6/7b/photo1jpg.jpg?w=1400&h=-1&s=1" alt="Vista da estrada da Serra da Leba">
+            <figcaption>Serra da Leba</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/d7/b5/16/tundavala.jpg?w=2000&h=-1&s=1" alt="Formações rochosas das Fendas da Tundavala">
+            <figcaption>Fendas da Tundavala</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/28/50/c5/mausoleum-of-agostinho.jpg?w=1100&h=-1&s=1" alt="Mausoléu de Agostinho Neto">
+            <figcaption>Museu Agostinho Neto</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sable_bull.jpg/1024px-Sable_bull.jpg" alt="Antílope Palanca Negra Gigante">
+            <figcaption>Palanca Negra Gigante</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://revistajardins.pt/wp-content/uploads/2024/07/Welwitschia-mirabilis.jpg" alt="Welwitschia mirabilis">
+            <figcaption>Welwitschia Mirabilis</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://images.ecycle.com.br/wp-content/uploads/2024/05/02144040/deserto-do-namibe.jpg.webp" alt="Dunas de areia do Deserto do Namibe">
+            <figcaption>Deserto do Namibe</figcaption>
+          </figure>
+          <figure class="galeria-item">
+            <img src="https://coracaoafricano2532014.wordpress.com/wp-content/uploads/2014/10/mulheres-casadas-ou-mc3a3es.jpg" alt="Mulheres da tribo Mucubal com trajes tradicionais">
+            <figcaption>Mulheres da Tribo Mucubal</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" style="padding: 50px 0; background-color: #f8f9fa;">
+      <div class="container">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco através do email <strong>exemplo@email.com</strong>.</p>
+      </div>
+    </section>
+
   </main>
 
 
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Projeto do Herculano e Lucas. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
+ 
   <script src="js/app.js"></script>
 </body>
-
 </html>
