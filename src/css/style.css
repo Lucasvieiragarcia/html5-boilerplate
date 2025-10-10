@@ -42,13 +42,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha se não couberem */
+  gap: 1rem; /* Adiciona um espaço caso quebrem a linha */
 }
 
 .nav-logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 1.2rem;
   color: var(--primary-color);
   text-decoration: none;
+  flex-shrink: 1; /* Permite que o logo diminua de tamanho se necessário */
 }
 
 .main-nav ul {
@@ -57,12 +61,15 @@ body {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .main-nav a {
+  font-family: "Georgia", "Times New Roman", serif;
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 500;
+  font-weight: normal;
+  font-size: 1rem;
   transition: color 0.2s ease-in-out;
 }
 
@@ -70,6 +77,7 @@ body {
 .main-nav a.active {
   color: var(--secondary-color);
 }
+
 
 /* ======================================================= */
 /* --- ESTILOS DA GALERIA (COM LEGENDA SOBREPOSTA) --- */
@@ -94,18 +102,20 @@ body {
 .galeria-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumentado de 280px para 350px */
+  /* NOVO: No desktop, mantém o minmax(350px, 1fr) */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-content: center; /* Centraliza a grid quando houver menos colunas do que o espaço permitiria */
 }
 
-/* 1. Preparação do Container da Imagem */
 .galeria-item {
-  position: relative; /* Essencial para posicionar a legenda dentro dele */
-  margin: 0;
+  position: relative;
+  margin: 0 auto; /* Centraliza o item individualmente se a largura não for 100% */
+  max-width: 100%; /* Garante que o item não exceda o container */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block; /* Garante que a figura se comporte como um bloco */
+  display: block;
 }
 
 .galeria-item:hover {
@@ -113,47 +123,38 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
-/* 2. Estilo da Imagem */
 .galeria-item img {
   display: block;
   width: 100%;
   height: 100%;
-  aspect-ratio: 1 / 1; /* Proporção de 1 para 1 (quadrado) */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-/* Efeito de zoom na imagem ao passar o mouse */
 .galeria-item:hover img {
   transform: scale(1.05);
 }
 
-/* 3. Estilo da Legenda Sobreposta */
 .galeria-item figcaption {
-  /* Posicionamento sobre a imagem */
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-
-  /* Aparência */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
   color: white;
-  padding: 40px 20px 20px; /* Mais espaço para o gradiente */
+  padding: 40px 20px 20px;
   text-align: left;
   font-size: 1.1rem;
   font-weight: 500;
-
-  /* Efeito de transição */
-  opacity: 0; /* Começa invisível */
-  transform: translateY(20px); /* Começa um pouco para baixo */
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* 4. Mostrar a Legenda ao Passar o Mouse */
 .galeria-item:hover figcaption {
-  opacity: 1; /* Torna-se visível */
-  transform: translateY(0); /* Sobe para a posição final */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- FOOTER --- */
@@ -165,4 +166,30 @@ body {
   border-top: 1px solid var(--border-color);
   font-size: 0.9rem;
   color: #777;
+}
+
+/* ======================================================= */
+/* --- AJUSTES DE RESPONSIVIDADE ---                       */
+/* ======================================================= */
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1rem;
+    }
+    .main-nav ul {
+        gap: 0.8rem;
+    }
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .galeria-grid {
+      /* Quando a tela é pequena, a coluna ocupa 100% da largura disponível */
+      grid-template-columns: 1fr; /* Força uma única coluna, ocupando todo o espaço */
+    }
+
+    .galeria-item {
+      /* Remove o margin auto para garantir que o item ocupe a largura total */
+      margin: 0;
+    }
 }
