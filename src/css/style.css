@@ -31,7 +31,7 @@ body {
   position: absolute;
   left: -999px;
   top: 0;
-  background: #111;
+  background: #ffffff;
   color: #030000;
   padding: 0.5rem 1rem;
   z-index: 9999;
@@ -278,6 +278,7 @@ body {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    color: #fff;
   }
 
   .site-nav {
@@ -286,9 +287,11 @@ body {
     top: 60px;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #111;
+    color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
+    z-index: 999;
   }
 
   .site-nav.open {
@@ -306,6 +309,11 @@ body {
 
   .nav-list li a {
     font-size: 18px;
+  }
+
+  .nav-list li a:hover {
+    color: #00bcd4;
+    /* cor de destaque ao passar o mouse */
   }
 }
 
