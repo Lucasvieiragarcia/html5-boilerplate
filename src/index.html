@@ -11,9 +11,7 @@
 
 <body id="top">
 
-  <!-- Link para pular direto ao conteúdo -->
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
-
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
@@ -34,11 +32,9 @@
     </div>
   </header>
 
-  <!-- Botão Voltar ao Topo -->
   <button id="voltar-ao-topo" class="voltar-ao-topo" aria-hidden="true" aria-label="Voltar ao topo">
     ↑ Topo
   </button>
-
 
   <main id="main-content" tabindex="-1">
 
@@ -49,27 +45,62 @@
       </div>
     </section>
 
-    <section id="sobre" style="padding: 50px 0;">
-      <div class="container">
-        <h2>Sobre o Projeto</h2>
-        <p>Este espaço é dedicado a apresentar nossas fotografias e projetos visuais de forma elegante e acessível.</p>
-      </div>
-    </section>
+    <section id="sobre" class="sobre-container">
+        <div class="container">
+            <h2 class="sobre-titulo">Sobre o Nosso Projeto</h2>
+            <p class="sobre-subtitulo">Entenda o propósito, as tecnologias utilizadas e o que vem por aí.</p>
 
+            <div class="sobre-conteudo">
+                <h3>Objetivo do Projeto</h3>
+                <p>
+                    O objetivo principal deste trabalho é criar uma galeria de imagens online que seja visualmente agradável, responsiva e performática. O site foi desenvolvido como projeto final da disciplina, demonstrando a aplicação prática de tecnologias web modernas para construir uma interface de usuário funcional e elegante, focada na experiência do usuário.
+                </p>
+
+                <h3>Recursos e Tecnologias</h3>
+                <ul>
+                    <li><strong>HTML5 Semântico:</strong> Para uma estrutura bem organizada e acessível.</li>
+                    <li><strong>CSS3 Moderno:</strong> Utilizamos Flexbox para o layout da navegação e CSS Grid para criar a galeria de imagens responsiva, garantindo uma adaptação perfeita a qualquer tamanho de tela.</li>
+                    <li><strong>Design Responsivo (Mobile-First):</strong> A estilização foi pensada primeiro para dispositivos móveis, garantindo que a experiência seja excelente em telas pequenas, e depois aprimorada para desktops.</li>
+                    <li><strong>Git e GitHub:</strong> Para controle de versão do código, trabalho em equipe através de branches e gerenciamento de Pull Requests.</li>
+                </ul>
+
+                <h3>Próximos Passos</h3>
+                <ul>
+                    <li>Implementação de um formulário de contato funcional.</li>
+                    <li>Adição de um Lightbox para visualizar as imagens da galeria em tela cheia.</li>
+                    <li>Otimização de performance, como o carregamento tardio (lazy loading) das imagens.</li>
+                    <li>Criação de mais páginas de conteúdo.</li>
+                </ul>
+            </div>
+
+            <div class="equipe-conteudo">
+                <h3>Contribuições da Equipe</h3>
+                <p>
+                    O trabalho foi dividido entre os integrantes da equipe para garantir a eficiência e a qualidade do projeto final. As principais tarefas atribuídas foram:
+                </p>
+                <ul>
+                    <li><strong>Lucas Vieira Garcia:</strong> Estruturação inicial do projeto (HTML), estilização do cabeçalho e rodapé (CSS).</li>
+                    <li><strong>Herculano Henriques Chitungo:</strong> Desenvolvimento e responsividade da galeria de imagens com CSS Grid, pesquisa e seleção de imagens.</li>
+                    <li><strong>Herculano Henriques:</strong> Criação da seção "Sobre", redação do conteúdo e integração dos links na barra de navegação.</li>
+                    <li><strong>Lucas & Herculano:</strong> Gerenciamento do repositório no GitHub, revisão de código (Pull Requests) e deploy do projeto.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <section id="galeria" class="galeria-container">
       <div class="container">
         <h2 class="galeria-titulo">Nossa Galeria</h2>
         <p class="galeria-subtitulo">Uma seleção de nossas melhores imagens.</p>
         <div class="galeria-grid">
-          <figure class="galeria-item">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/54/e8/2f/waterfall-from-the-river.jpg?w=1200&h=900&s=1" alt="Quedas de Kalandula em Angola">
-            <figcaption>Quedas de Kalandula</figcaption>
-          </figure>
-          <figure class="galeria-item">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/bf/f6/7b/photo1jpg.jpg?w=1400&h=-1&s=1" alt="Vista da estrada da Serra da Leba">
-            <figcaption>Serra da Leba</figcaption>
-          </figure>
-          <figure class="galeria-item">
+            <figure class="galeria-item">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/54/e8/2f/waterfall-from-the-river.jpg?w=1200&h=900&s=1" alt="Quedas de Kalandula em Angola">
+                <figcaption>Quedas de Kalandula</figcaption>
+            </figure>
+            <figure class="galeria-item">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/bf/f6/7b/photo1jpg.jpg?w=1400&h=-1&s=1" alt="Vista da estrada da Serra da Leba">
+                <figcaption>Serra da Leba</figcaption>
+            </figure>
+            <figure class="galeria-item">
             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/d7/b5/16/tundavala.jpg?w=2000&h=-1&s=1" alt="Formações rochosas das Fendas da Tundavala">
             <figcaption>Fendas da Tundavala</figcaption>
           </figure>
@@ -93,19 +124,18 @@
             <img src="https://coracaoafricano2532014.wordpress.com/wp-content/uploads/2014/10/mulheres-casadas-ou-mc3a3es.jpg" alt="Mulheres da tribo Mucubal com trajes tradicionais">
             <figcaption>Mulheres da Tribo Mucubal</figcaption>
           </figure>
-        </div>
+          </div>
       </div>
     </section>
 
     <section id="contato" style="padding: 50px 0; background-color: #f8f9fa;">
       <div class="container">
         <h2>Contato</h2>
-        <p>Entre em contato conosco através do email <strong>exemplo@email.com</strong>.</p>
+        <p>Entre em contato conosco através do email <strong>hercules3h@hotmail.com</strong>.</p>
       </div>
     </section>
 
   </main>
-
 
   <footer class="main-footer">
     <div class="container">
@@ -113,7 +143,6 @@
     </div>
   </footer>
 
- 
   <script src="js/app.js"></script>
 </body>
 </html>
