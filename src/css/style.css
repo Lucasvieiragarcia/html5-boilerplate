@@ -27,61 +27,7 @@ body {
   padding: 0 1rem;
 }
 
-/* --- HEADER E NAVEGAÇÃO --- */
-.main-header {
-  background-color: var(--light-gray);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.nav-logo {
-  font-family: "Georgia", "Times New Roman", serif;
-  font-weight: normal;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  text-decoration: none;
-  flex-shrink: 1;
-}
-
-.main-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.main-nav a {
-  font-family: "Georgia", "Times New Roman", serif;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: normal;
-  font-size: 1rem;
-  transition: color 0.2s ease-in-out;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-  color: var(--secondary-color);
-}
-
-
-/* ======================================================= */
-/* --- ESTILOS DA SEÇÃO SOBRE (ADICIONADO) ---             */
-/* ======================================================= */
+/* --- ESTILOS DA SEÇÃO SOBRE---             */
 
 .sobre-container {
   padding: 4rem 1rem;
