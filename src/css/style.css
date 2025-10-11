@@ -31,8 +31,8 @@ body {
   position: absolute;
   left: -999px;
   top: 0;
-  background: #111;
-  color: #fff;
+  background: #ffffff;
+  color: #030000;
   padding: 0.5rem 1rem;
   z-index: 9999;
 }
@@ -45,7 +45,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--site-bg, #ffffff);
+  background: var(--site-bg, #111);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
@@ -61,7 +61,7 @@ body {
 .brand {
   font-weight: 700;
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
 }
 
 .site-nav .nav-list {
@@ -76,7 +76,7 @@ body {
 
 .site-nav a {
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
@@ -278,6 +278,7 @@ body {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    color: #fff;
   }
 
   .site-nav {
@@ -286,9 +287,11 @@ body {
     top: 60px;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #111;
+    color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
+    z-index: 999;
   }
 
   .site-nav.open {
@@ -306,6 +309,11 @@ body {
 
   .nav-list li a {
     font-size: 18px;
+  }
+
+  .nav-list li a:hover {
+    color: #00bcd4;
+    /* cor de destaque ao passar o mouse */
   }
 }
 
@@ -328,5 +336,91 @@ body {
   .site-nav a,
   .site-header {
     transition: none !important;
+  }
+}
+
+/*
+   Rodapé que precisei fazer para a ultima issue
+*/
+
+.site-footer {
+  background-color: #111;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+  border-top: 3px solid #007bff;
+  /* linha sutil combinando com navbar */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-title {
+  font-weight: 600;
+  color: #fff;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: #007bff;
+  outline: none;
+}
+
+.footer-right {
+  text-align: right;
+  flex: 1;
+  color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
   }
 }
